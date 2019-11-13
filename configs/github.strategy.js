@@ -4,8 +4,8 @@ const GitHubStrategy = require("passport-github").Strategy;
 passport.use(
   new GitHubStrategy(
     {
-      clientID: "GITHUB_CLIENT_ID",
-      clientSecret: "GITHUB_CLIENT_SECRET",
+      clientID: "Iv1.e535af177659c4df",
+      clientSecret: "c5d955c2cc90fa6eccff44c44cb333165235a18a",
       callbackURL: "http://localhost:3000/auth/github/callback"
     },
     function(accessToken, refreshToken, profile, done) {
@@ -13,7 +13,7 @@ passport.use(
         console.log('Ocorreu um erro!')
       }
 
-      return done(onError, profile);
+      return done(undefined, profile);
     }
   )
 );
@@ -23,7 +23,7 @@ passport.serializeUser(function(user, done) {
     console.log('Ocorreu um erro!')
   }
 
-  done(onError, user);
+  done(undefined, user);
 });
 
 passport.deserializeUser(function(user, done) {
@@ -31,5 +31,5 @@ passport.deserializeUser(function(user, done) {
     console.log('Ocorreu um erro!')
   }
 
-  done(onError, user);
+  done(undefined, user);
 });
