@@ -39,7 +39,7 @@ const Formidable = require("express-formidable");
 
 app.use(
   Formidable({
-    uploadDir: "/Users/lucasporto/formidable", //mudar para a pasta do computador de vocês
+    uploadDir: "/", //mudar para a pasta do computador de vocês
     multiples: true // req.files to be arrays of files
   })
 );
