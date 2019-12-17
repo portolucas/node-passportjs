@@ -72,6 +72,10 @@ app.use(function(err, req, res, next) {
     title: "Vamos tentar de novo?"
   });
 
+  res.status(503).render("uploadError", {
+    title: "Serviço Indisponível"
+  });
+
   // render the error page
   res.status(err.status || 500);
   res.render("error");
