@@ -1,9 +1,13 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<main>
+	<section id="content">
+		<h1><img src="/img/logo.png" alt="DropaTudo"></h1>
+		<h2>Bem vindo ao {{title}}</h2>
 
-<form action="/" enctype="multipart/form-data" method="post">
-    <input type="file" name="upload" multiple="multiple" /><br />
-    <input type="submit" value="Upload" />
-</form>
+		<form action="/" enctype="multipart/form-data" method="post" id="formARQ">
+			<input class="btn" type="file" name="upload" multiple="multiple" /><br />
+			<input class="btn" type="submit" value="Upload" />
+		</form>
 
-<a href="/logout">Logout</a>
+		<a id="btn-logout" href="/logout">Logout</a>
+	</section>
+</main>
