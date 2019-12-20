@@ -4,12 +4,13 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const passport = require("passport");
-
 const indexRouter = require("./routes/index");
 const loginRouter = require("./routes/login");
 const logoutRouter = require("./routes/logout");
-//const uploadRouter = require("./routes/upload");
 
+var userLoged = require("./routes/index");
+
+//const uploadRouter = require("./routes/upload");
 const app = express();
 require("./configs/github.strategy");
 
@@ -39,14 +40,19 @@ const Formidable = require("express-formidable");
 
 app.use(
   Formidable({
-    uploadDir: "/arquivos", //mudar para a pasta do computador de vocês
+    uploadDir: "/users/lucasporto/formidable", //mudar para a pasta do computador de vocês
     multiples: true // req.files to be arrays of files
   })
 );
 
+function exporterUserId(userId) {
+  console.log(userId);
+}
+
 app.post("/", (req, res, next) => {
   const files = req.files; // contains files
   const fileName = files.upload.name;
+  exporterUserId(userId);
   res.render("uploadSucess", {
     title: "O arquivo " + fileName + " está nas núvens :)"
   });
