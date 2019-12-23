@@ -7,8 +7,7 @@ const passport = require("passport");
 const indexRouter = require("./routes/index");
 const loginRouter = require("./routes/login");
 const logoutRouter = require("./routes/logout");
-
-var userLoged = require("./routes/index");
+var connect = require("connect");
 
 //const uploadRouter = require("./routes/upload");
 const app = express();
@@ -23,7 +22,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-
+// parse urlencoded request bodies into req.body
+var bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: false }));
 // Set passport configs
 app.use(
   require("express-session")({
@@ -36,27 +37,27 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Set Formidable Configs
-const Formidable = require("express-formidable");
+// const Formidable = require("express-formidable");
 
-app.use(
-  Formidable({
-    uploadDir: "/users/lucasporto/formidable", //mudar para a pasta do computador de vocês
-    multiples: true // req.files to be arrays of files
-  })
-);
+// app.use(
+//   Formidable({
+//     uploadDir: "/users/lucasporto/formidable", //mudar para a pasta do computador de vocês
+//     multiples: true // req.files to be arrays of files
+//   })
+// );
 
-function exporterUserId(userId) {
-  console.log(userId);
-}
+// function exporterUserId(userId) {
+//   console.log(userId);
+// }
 
-app.post("/", (req, res, next) => {
-  const files = req.files; // contains files
-  const fileName = files.upload.name;
-  exporterUserId(userId);
-  res.render("uploadSucess", {
-    title: "O arquivo " + fileName + " está nas núvens :)"
-  });
-});
+// app.post("/", (req, res, next) => {
+//   const files = req.files; // contains files
+//   const fileName = files.upload.name;
+//   exporterUserId(userId);
+//   res.render("uploadSucess", {
+//     title: "O arquivo " + fileName + " está nas núvens :)"
+//   });
+// });
 
 app.use("/", indexRouter);
 app.use("/login", loginRouter);

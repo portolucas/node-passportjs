@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-	"start": "./bin/www"
+    "start": "./bin/www"
   },
   "dependencies": {
+    "aws-sdk": "^2.595.0",
+    "connect": "^3.7.0",
     "connect-ensure-login": "^0.1.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
