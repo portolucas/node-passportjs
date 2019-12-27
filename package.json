@@ -12,9 +12,7 @@
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
-    "express-formidable": "^1.2.0",
     "express-session": "^1.16.1",
-    "formidable": "^1.2.1",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
     "knex": "^0.16.5",
@@ -22,7 +20,5 @@
     "passport": "^0.4.0",
     "passport-github": "^1.1.0"
   },
-  "devDependencies": {
-    "nodemon": "^1.19.0"
-  }
+  "devDependencies": {}
 }

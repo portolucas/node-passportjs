@@ -36,29 +36,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Set Formidable Configs
-// const Formidable = require("express-formidable");
-
-// app.use(
-//   Formidable({
-//     uploadDir: "/users/lucasporto/formidable", //mudar para a pasta do computador de vocês
-//     multiples: true // req.files to be arrays of files
-//   })
-// );
-
-// function exporterUserId(userId) {
-//   console.log(userId);
-// }
-
-// app.post("/", (req, res, next) => {
-//   const files = req.files; // contains files
-//   const fileName = files.upload.name;
-//   exporterUserId(userId);
-//   res.render("uploadSucess", {
-//     title: "O arquivo " + fileName + " está nas núvens :)"
-//   });
-// });
-
 app.use("/", indexRouter);
 app.use("/login", loginRouter);
 app.use("/logout", logoutRouter);

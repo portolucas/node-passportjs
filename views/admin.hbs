@@ -1,12 +1,21 @@
 <main>
 	<section id="content">
 		<h1><img src="/img/logo.png" alt="DropaTudo"></h1>
-		<h2>Bem vindo ao {{title}}</h2>
+		<h2>Bem vindo(a) {{user}}</h2>
 
 		<form action="/uploadFile" method="post">
 			<input class="btn" type="file" name="upload" /><br />
 			<input class="btn" type="submit" value="Enviar" />
 		</form>
+
+		<ul {{#files}}>
+			<a href="https://dropa-tudo.s3-sa-east-1.amazonaws.com/{{Key}}">
+				<li id="{{Key}}">{{Key}}
+				</li>
+			</a>
+			<a href="/removeFile/{{Key}}">Deletar</a>
+			{{/files}}
+		</ul>
 
 		<a id="btn-logout" href="/logout">Logout</a>
 	</section>
