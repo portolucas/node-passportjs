@@ -25,9 +25,9 @@ router.post("/uploadFile", (req, res) => {
   res.render("uploadSucess", { title: "O seu arquivo está nas núvens :)" });
 });
 
-const ID = "AKIA6GGKPPKN2YIK4RVL";
-const SEGREDO = "u0ce0j/dJ74H2XbBSHBZDS7Q/G+FBDOQgnAV9l1H";
-const BUCKET_NAME = "dropa-tudo";
+const ID = "";
+const SEGREDO = "";
+const BUCKET_NAME = "";
 
 const s3 = new AWS.S3({
   accessKeyId: ID,
