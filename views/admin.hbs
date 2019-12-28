@@ -3,20 +3,21 @@
 		<h1><img src="/img/logo.png" alt="DropaTudo"></h1>
 		<h2>Bem vindo(a) {{user}}</h2>
 
-		<form action="/uploadFile" method="post">
+		<form action="/uploadFile" method="post" id="formARQ">
 			<input class="btn" type="file" name="upload" /><br />
 			<input class="btn" type="submit" value="Enviar" />
 		</form>
-
-		<ul {{#files}}>
-			<a href="https://dropa-tudo.s3-sa-east-1.amazonaws.com/{{Key}}">
-				<li id="{{Key}}">{{Key}}
-				</li>
+		
+		<ul id="caixaArquivos">
+			<legend><h2>Arquivos:</h2></legend>
+			{{#files}}
+			<a class="btnArq" href="https://dropa-tudo.s3-sa-east-1.amazonaws.com/{{Key}}">
+				<li id="{{Key}}">{{Key}}</li>
 			</a>
-			<a href="/removeFile/{{Key}}">Deletar</a>
+			<a class="btnDel" href="/removeFile/{{Key}}">x</a>
 			{{/files}}
 		</ul>
-
+		<div class="clear"></div>
 		<a id="btn-logout" href="/logout">Logout</a>
 	</section>
 </main>
